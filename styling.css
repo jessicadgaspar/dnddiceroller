@@ -1,0 +1,180 @@
+/* superclasses */
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 16px;
+}
+
+body{
+    min-height: 100vh;
+    background-color: #FFFBF7;
+}
+
+h2{
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
+hr{
+    margin-top: 1rem;
+    border: 0.1rem solid #000;
+}
+
+footer{
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 0.2rem solid #000;
+}
+
+/* classes */
+
+.header{
+    width: 100%;
+    padding: 1rem 4rem;
+}
+
+.header h1{
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.navbar{
+    margin-top: 0.7rem;
+}
+
+.modifier-section{
+    padding-top: 1rem;
+}
+
+.modifier-section h3 {
+    padding-bottom: 0.5rem;
+}
+
+.results-section{
+    padding-bottom: 1rem;
+    width: 100%;
+}
+
+.dice-buttons{
+    margin-bottom: 1rem;
+    display: flex;
+}
+
+.dice{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 1rem;
+}
+
+
+.dice label input + span{
+    background-color: azure;
+}
+
+.dice label{
+    font-weight: 600;
+}
+
+.dice label input{
+    display:none;
+}
+
+.dice img{
+    height: 2rem;
+    margin: 1rem 0;
+}
+
+.log-img{
+    height: 1.2rem;
+}
+
+.dice span{
+    padding: 0.4rem 0.8rem;
+}
+
+.dice input:checked + span{
+    background-color: aquamarine;
+}
+
+.more-or-less-button{
+    display: inline-block;
+    padding: 0.2rem 0.4rem;
+    background-color: azure;
+}
+
+#roll-button{
+    padding: 0.5rem 0.7rem;
+    margin: 1.5rem 0;
+    background-color: aquamarine;
+}
+
+.dice label input + span, .more-or-less-button, #roll-button{
+    border-top: 0.1rem solid #000;
+    border-left: 0.1rem solid #000;
+    border-right: 0.2rem solid #000;
+    border-bottom: 0.2rem solid #000;
+    border-radius: 0.1rem;
+    cursor:pointer;
+}
+
+.text{
+    display: inline-block;
+}
+
+#rolls-log{
+    padding-top: 1rem;
+}
+
+@media all and (min-width:992px){
+    .sections{
+        display: flex;
+        flex-direction: row;
+        width: 90vw;
+        margin: 0 auto;
+    }
+    
+    .dice-roller-section{
+        flex:2;
+        padding-top:1rem;
+        border-right: 0.2rem solid #000;
+    }
+    .results-section{
+        flex:2;
+        padding-top:1rem;
+        margin-left:1rem;
+        
+    }
+}
+
+@media all and (max-width:700px){
+    .sections{
+        display: block;
+        width: 90vw;
+        margin: 0 auto;
+    }
+    
+}
+
+@media all and (max-width:480px){
+    .sections{
+        display: block;
+        width: 90vw;
+        margin: 0 auto;
+    }
+    
+    .dice-roller-section{
+        padding-top:1rem;
+        padding-left:1rem;
+
+    }
+    .results-section{
+        padding-top:1rem;
+        padding-left:1rem;
+    }
+}
