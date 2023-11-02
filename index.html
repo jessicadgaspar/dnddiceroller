@@ -1,82 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <link href="styling.css" rel="stylesheet" type="text/css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-    <script src="script.js"></script>
-    <title>Easy DnD Rolls - Quick Online Dice Rolling!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Easy DnD Rolls</title>
 </head>
 <body>
-    <header class="header">
-        <h1>DnD Dice Roller</h1>
-        <p id="game-description">An easy to use online dice rolling system for the tabletop game <i>Dungeons and Dragons</i>.</p>
-    </header>
-    <hr />
-    <div class="sections">
-        <div class="dice-roller-section">
-            <h2>Choose your dice:</h2>
-            <div class="dice-buttons">
-                <div class="dice d20">
-                    <img src="d20.png"/>
-                    <label>
-                       <input type="radio" name="d" value="20"><span>D20</span>
-                    </label>
-                </div>
-                <div class="dice d12">
-                    <img src="d12.png"/>
-                    <label>
-                       <input type="radio" name="d" value="12"><span>D12</span>
-                    </label>
-                 </div>
-                 <div class="dice d10">
-                    <img src="d10.png"/>
-                    <label>
-                       <input type="radio" name="d" value="10"><span>D10</span>
-                    </label>
-                 </div>
-                 <div class="dice d8">
-                    <img src="d8.png"/>
-                    <label>
-                       <input type="radio" name="d" value="8"><span>D8</span>
-                    </label>
-                 </div>
-                 <div class="dice d6">
-                    <img src="d6.png"/>
-                    <label>
-                       <input type="radio" name="d" value="6"><span>D6</span>
-                    </label>
-                 </div>
-                 <div class="dice d4">
-                    <img src="d4.png"/>
-                    <label>
-                       <input type="radio" name="d" value="4"><span>D4</span>
-                    </label>
-                 </div>
-            </div>
-            <div class="options-section">
-                <div class="modifier-section">
-                    <h3>Modifier:</h3>
-                    <button onclick="incrementMod()" class="more-or-less-button" id="plus-one-mod">+</button>
-                    <p class="text" id="mod-counter">+0</p>
-                    <button onclick="decrementMod()"class="more-or-less-button" id="minus-one-mod">-</button>
-                </div>
-            </div>
-            <div class="roll-button-section">
-                <button onclick="rollDice()" id="roll-button">ROLL DICE</button>
-            </div>
+  <div class="body-container">
+  <header class="header">
+    <h1 class="heading">Easy <span>DnD</span> Rolls</h1>
+    <p class="header-description">An easy to use online dice rolling system for the tabletop game <span>Dungeons and Dragons</span>.</p>
+  </header>
+  <div class="app-container">
+  <section class="rolling-choices">
+      <h2 class="secondary-heading">Choose Your Dice</h2>
+      <div class="dice-options">
+        <img src="imgs/d20.png" alt="d20" class="dice-image" />
+        <img src="imgs/d12.png" alt="d12" class="dice-image" />
+        <img src="imgs/d10.png" alt="d10" class="dice-image" />
+        <img src="imgs/d8.png" alt="d8" class="dice-image" />
+        <img src="imgs/d6.png" alt="d6" class="dice-image" />
+        <img src="imgs/d4.png" alt="d4" class="dice-image" />
+        <div class="dice-choice">
+          <input type="radio" id="d20" value="20" name="dice">
+          <label class="dice" for="d20">D20</label>
         </div>
-        <div class="results-section">
-            <h2>Result:</h2>
-            <h2 id="result">0</h2>
-            <hr />
-            <div id="rolls-log">
-                <h3>Dice Roll Log:</h3>
-            </div>
+        <div class="dice-choice">
+          <input type="radio" id="d12" value="12" name="dice">
+          <label class="dice" for="d12">D12</label>
         </div>
-    </div>
-    <footer>Copyright © 2023 All rights reserved.</footer>
+        <div class="dice-choice">
+          <input type="radio" id="d10" value="10" name="dice">
+          <label class="dice" for="d10">D10</label>
+        </div>
+        <div class="dice-choice">
+          <input type="radio" id="d8" value="8" name="dice">
+          <label class="dice" for="d8">D8</label>
+        </div>  
+        <div class="dice-choice">
+          <input type="radio" id="d6" value="6" name="dice">
+          <label class="dice" for="d6">D6</label>
+        </div>
+        <div class="dice-choice">
+          <input type="radio" id="d4" value="4" name="dice">
+          <label class="dice" for="d4">D4</label>
+        </div>  
+      </div>
+    </section>
+
+    <section class="rolling-options">
+      <div class="modifier-options">
+        <p class="modifier-text">Modifier:</p>
+        <button class="counter-buttons" id="plus-button">+</button>
+        <p class="modifier-text">+<span class="modifier-counter">0</span></p>
+        <button class="counter-buttons" id="minus-button">-</button>
+      </div>
+      <div class="adv-or-dis">
+        <div class="adv-or-dis-choice">
+          <input type="checkbox" id="advantage" value="advantage" name="adv-or-dis" class="adv-or-dis-checkbox">
+          <label for="advantage">Advantage</label>
+        </div>
+        <div class="adv-or-dis-choice">
+          <input type="checkbox" id="disadvantage" value="disadvantage" name="adv-or-dis" class="adv-or-dis-checkbox">
+          <label for="disadvantage">Disadvantage</label>
+        </div>
+      </div>
+    </section>
+
+    <section class="rolling-results">
+      <button class="rolling-button">Roll</button>
+      <p class="roll-result"></p>
+      <p class="roll-result-info"></p>
+      <p class="roll-adv-or-dis-info"></p>
+    </section>
+
+    <section class="rolling-log">
+      <div class="rolling-log-top">
+        <h2 class="secondary-heading">Dice Rolls Log</h2>
+        <button class="clear-log-button">Clear Log</button>
+      </div>
+      <ul class="rolling-log-results">
+        
+      </ul>
+    </section>
+  </div>
+  
+
+  <footer class="footer">
+    <p class="footer-text">Easy DnD Rolls is unofficial Fan Content permitted under the Fan Content Policy. Not approved/endorsed by Wizards.
+    Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC.</p>
+  </footer>
+  </div>
+  
+
+
+<script src="script.js"></script>
 </body>
 </html>
